@@ -1,0 +1,20 @@
+{
+  "name": "@szz_dev/images-playground-be",
+  "version": "1.0.0",
+  "description": "Playground for @szz_dev/images (back-end)",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "be",
+    "playground",
+    "images"
+  ],
+  "author": "@szz_dev",
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  }
+}
