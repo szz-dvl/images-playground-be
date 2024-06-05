@@ -14,7 +14,33 @@
   "author": "@szz_dev",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
+    "@types/connect-busboy": "^1.0.3",
+    "@types/express": "^4.17.21",
+    "@types/formidable": "^3.4.5",
+    "@types/js-yaml": "^4.0.9",
+    "@types/lodash": "^4.17.4",
+    "@types/md5": "^2.3.5",
+    "@types/node": "^20.14.1",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@types/ws": "^8.5.10",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@szz_dev/images": "^1.1.4",
+    "body-parser": "^1.20.2",
+    "busboy": "^1.6.0",
+    "connect-busboy": "^1.0.0",
+    "cron": "^3.1.7",
+    "express": "^4.19.2",
+    "express-openapi-validator": "^5.2.0",
+    "glob": "^10.4.1",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "swagger-ui-express": "^5.0.1",
+    "ts-node": "^10.9.2",
+    "ws": "^8.17.0",
+    "yaml": "^2.4.3"
   }
 }
