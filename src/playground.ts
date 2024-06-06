@@ -8,6 +8,7 @@ import { join } from "node:path";
 import { broadcast, initWebSockets } from "./spec/websocket";
 import { Images, ImageEffect } from "@szz_dev/images";
 import Job from "./jobs/last";
+import cors from "cors";
 
 Job.start();
 
@@ -110,6 +111,7 @@ app.use(
   })
 );
 
+app.use(cors());
 app.use("/image", ImagesRouter);
 
 app.use(async (req, res, next) => {
