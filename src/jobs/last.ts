@@ -13,8 +13,6 @@ const getPublicName = (localname: string) => {
 
   part = part.replace(/\/\d+x{1}\d+\//, "").replace(filename, "");
 
-  console.log(filename, part)
-
   return join(part, "300x420", filename);
 };
 
