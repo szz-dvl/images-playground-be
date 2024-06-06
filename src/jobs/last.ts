@@ -4,7 +4,7 @@ import { basename, join } from "node:path";
 import { broadcast } from "../spec/websocket";
 import { map } from "lodash";
 
-const MINUTES = 30 * 60 * 1000;
+const MINUTES = 3000 * 60 * 1000;
 const AMOUNT = 30;
 
 const getPublicName = (localname: string) => {
@@ -15,20 +15,20 @@ const getPublicName = (localname: string) => {
 
   console.log(filename, part)
 
-  return join(part, "0x0", filename);
+  return join(part, "300x420", filename);
 };
 
 export default new CronJob(
-  "* * * * * *", // cronTime
+  "*/30 * * * * *", // cronTime
   async function () {
     const candidates = [];
 
     for await (const file of new Glob(
       [
         join(__dirname, "..", "..", "uploads", "**", "*"),
-        join(__dirname, "..", "..", "uploads", ".**", "**", "*"),
+        join(__dirname, "..", "..", "uploads", ".cache", "*"),
       ],
-      { stat: true, withFileTypes: true }
+      { stat: true, withFileTypes: true, ignore: [ ".cache/**" ] }
     ).iterate()) {
       if (file.isFile() && file.mtime) {
         const diff = Date.now() - file.mtime.getTime();
