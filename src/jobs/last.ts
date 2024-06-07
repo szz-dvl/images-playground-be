@@ -7,6 +7,8 @@ import { map } from "lodash";
 const MINUTES = 3000 * 60 * 1000;
 const AMOUNT = 30;
 
+export const last: Array<string> = [];
+
 const getPublicName = (localname: string) => {
   let part = localname.split("/uploads").pop()!;
   const filename = basename(part);
@@ -39,7 +41,12 @@ export default new CronJob(
       }
     }
 
-    broadcast(map(candidates, getPublicName));
+    const publicNames = map(candidates, getPublicName);
+
+    last.length = 0;
+    last.push.apply(last, publicNames);
+
+    broadcast(publicNames);
   }, // onTick
   null, // onComplete
   true, // start
