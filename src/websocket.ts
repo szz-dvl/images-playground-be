@@ -1,6 +1,6 @@
 import { WebSocketServer, WebSocket } from "ws";
 import * as http from "http";
-import { last } from "../jobs/last"
+import { last } from "./jobs/last"
 
 const sockets: Array<WebSocket> = [];
 

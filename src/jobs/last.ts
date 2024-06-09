@@ -1,7 +1,7 @@
 import { CronJob } from "cron";
 import { Glob } from "glob";
 import { basename, join } from "node:path";
-import { broadcast } from "../spec/websocket";
+import { broadcast } from "../websocket";
 import { map } from "lodash";
 
 const MINUTES = 3000 * 60 * 1000;

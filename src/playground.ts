@@ -5,12 +5,8 @@ import { spec } from "./spec";
 import swaggerUi from "swagger-ui-express";
 import ImagesRouter from "./routes/images";
 import { join } from "node:path";
-import { broadcast, initWebSockets } from "./spec/websocket";
-import { Images, ImageEffect } from "@szz_dev/images";
-import Job from "./jobs/last";
+import { ImageEffect, Images } from "@szz_dev/images";
 import cors from "cors";
-
-Job.start();
 
 const images = new Images({
   dir: join(__dirname, "..", "uploads"),
@@ -66,7 +62,7 @@ const images = new Images({
   allowComposition: true,
   sharp: {
     failOn: "warning",
-    pages: -1 /** Consider all the pages for multi-page images */,
+    pages: -1, /** Consider all the pages for multi-page images */
     limitInputPixels: 268402689,
     unlimited: false,
     sequentialRead: true,
@@ -75,7 +71,7 @@ const images = new Images({
     page: 0,
     subifd: -1,
     level: 0,
-    animated: true /** Same as above */,
+    animated: true, /** Same as above */
   },
   limits: {
     width: 1920,
@@ -108,29 +104,27 @@ app.use(
     validateRequests: true,
     validateResponses: false,
     validateSecurity: true,
-  })
+  }),
 );
 
 app.use(cors());
 app.use("/image", ImagesRouter);
 
 app.use(async (req, res, next) => {
-  console.log("Return: ", await images.middleware.bind(images)(req, res, next))
+  console.log("Return: ", await images.middleware.bind(images)(req, res, next));
 });
 
 function errorHandler(
   err: any,
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   console.error(err);
   return res.status(500).json({ error: err.cause || err });
 }
 app.use(errorHandler);
 
-initWebSockets(
-  app.listen(port, () => {
-    console.log(`App is listening on port ${port}`);
-  })
-);
+app.listen(port, () => {
+  console.log(`App is listening on port ${port}`);
+});
