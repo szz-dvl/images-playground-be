@@ -110,6 +110,8 @@ app.use(
 app.use(cors());
 app.use("/image", ImagesRouter);
 
+app.use(express.static(join(__dirname, "../", "./client")));
+
 app.use(async (req, res, next) => {
   console.log("Return: ", await images.middleware.bind(images)(req, res, next));
 });

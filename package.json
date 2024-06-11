@@ -2,9 +2,10 @@
   "name": "@szz_dev/images-playground-be",
   "version": "1.0.0",
   "description": "Playground for @szz_dev/images (back-end)",
-  "main": "dist/index.js",
+  "main": "dist/playground.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npx tsc && node dist/playground.js"
   },
   "keywords": [
     "be",

@@ -22,6 +22,98 @@ components:
           type: string
       additionalProperties: false
 paths:
+  /: 
+    summary: Serve static files, the client application
+    description: Serve static files, the client application
+    get:
+      tags:
+        - application
+      summary: Serve static files, the client application
+      description: Serve static files, the client application
+      operationId: getBundle
+      responses:
+        "200":
+          description: A bundle with the client application 
+          content:
+            text/html:
+              schema:
+                type: string
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnexpectedError"
+      deprecated: false
+  /{file}: 
+    summary: Serve static files, the client application
+    description: Serve static files, the client application
+    get:
+      tags:
+        - application
+      summary: Serve static files, the client application
+      description: Serve static files, the client application
+      operationId: getBundle
+      responses:
+        "200":
+          description: A bundle with the client application 
+          content:
+            text/html:
+              schema:
+                type: string
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnexpectedError"
+      deprecated: false
+  /static/js/{file}: 
+    summary: Serve static files, the client application
+    description: Serve static files, the client application
+    get:
+      tags:
+        - application
+      summary: Serve static files, the client application
+      description: Serve static files, the client application
+      operationId: getBundle
+      responses:
+        "200":
+          description: A bundle with the client application 
+          content:
+            text/html:
+              schema:
+                type: string
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnexpectedError"
+      deprecated: false
+  /static/css/{file}: 
+    summary: Serve static files, the client application
+    description: Serve static files, the client application
+    get:
+      tags:
+        - application
+      summary: Serve static files, the client application
+      description: Serve static files, the client application
+      operationId: getBundle
+      responses:
+        "200":
+          description: A bundle with the client application 
+          content:
+            text/html:
+              schema:
+                type: string
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UnexpectedError"
+      deprecated: false
   /image/{dir}/{size}/{file}:
     summary: Request an image
     description: Request an image
